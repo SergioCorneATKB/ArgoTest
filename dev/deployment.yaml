@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-loop-deployment
+spec:
+  selector:
+    matchLabels:
+      app: hello-loop
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hello-loop
+    spec:
+      containers:
+      - name: hello-loop
+        image: sergioocoorne/hello-loop:1.0
+        ports:
+        - containerPort: 8080
